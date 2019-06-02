@@ -1,0 +1,24 @@
+l=int(input(""))        #length
+os=str(input(""))       #Original String
+def avg(os,l):          #function to find the averages according to requirements
+    n=int(os,2)
+    a=b=n
+    flag=0
+    while(flag==0):
+        a=a+1
+        b=b-1
+        if (len(str(bin(a)[2:]))!=len(str(bin(b)[2:]))):
+            flag=-1     
+            a=a-1       #This if loop checks if the strings are of equal length 
+            b=b+1
+    if(a==b==n):        #Checks if there are two different numbers for average
+        print('-1')     #If not, prints -1
+    else:
+        print(bin(b)[2:],bin(a)[2:])
+try:
+    if len(os)==l and int(os,2) and os[0]!='0':
+        avg(os,l)       #try-except to check for possible errors and requirements
+    else:
+        print('Length not matched')
+except ValueError:      #Triggers if user inputs anything other than 0 or 1
+    print("Enter only binary number")
