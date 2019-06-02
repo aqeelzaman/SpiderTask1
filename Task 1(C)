@@ -1,30 +1,33 @@
 ten=[[8,80],[7,70],[16,160],[9,90],[43,430]]
 eight=[[7,56],[16,128],[9,72],[43,344]]
-seven=[[16,112],[9,63],[43,301]]
-sixteen=[[9,144],[43,688]]
-nine=[[43,387]]
+seven=[[16,112],[9,63],[43,301]]                    #This is the database to check against the queries
+sixteen=[[9,144],[43,688]]                          #Using these lists, we know which numbers are in which order
+nine=[[43,387]]                                     #The numbers in the list multiply to give a unique number
 total=[ten,eight,seven,sixteen,nine]
 d={0:10,1:8,2:7,3:16,4:9}
-order=[0,0,0,0,0,0]
+order=[]
 
 def fun(a,x,y):
     for b in range(0,5):
-        for c in total[b]:
-            if c[1]==a:
-                order[y]=c[0]
-                order[x]=d[b]
-    return order
+        for c in total[b]:                          #This is the function which gives two values u1 and u2
+            if c[1]==a:                             #u1 and u2 are the numbers in the sequence
+                u1=c[0]
+                u2=d[b]
+    if u1 not in order:
+        order.append(u1)                            #This checks if u1 and u2 are in order, then adds to list
+    if u2 not in order:
+        order.append(u2)
 
-q1=int(input("0 5: "))
-q2=int(input("5 2: "))
-q3=int(input("1 4: "))
-q4=int(input("4 3: "))
-print(order)
-order=fun(q1,0,5)
-print(order)
-order=fun(q2,2,5)
-print(order)
-order=fun(q3,1,4)
-print(order)
-order=fun(q4,3,4)
+q1=int(input("0 1: "))
+q2=int(input("1 2: "))
+q3=int(input("2 3: "))                              #These are the four queries asked with x y format
+q4=int(input("3 4: "))
+fun(q1,0,1)
+fun(q2,1,2)                                         #These four calls will put the numbers in order
+fun(q3,2,3)
+fun(q4,3,4)
+checklist=[7,8,9,10,16,43]
+for x in checklist:                                 #The last number in the list is added with help of the checklist
+    if x not in order:
+        order.append(x)
 print(order)
