@@ -34,6 +34,6 @@ for x in s:                         #Checking if both c and s have only 0 and 1
     if x!=1 or x!=0:
         flag=1
 if 1<=n<=10**9 and 1<=r<=3000 and 1<=x<=100 and 1<=y<=100 and len(c)==len(s)==int(data[0]) and flag===0:
-    rate(data,c,s)                  #Including all the constraints 
-else:
+    rate(data,c,s)                   
+else:                               #Including all the constraints
     print("Error in constraints")
