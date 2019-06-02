@@ -16,7 +16,7 @@ def avg(os,l):          #function to find the averages according to requirements
     else:
         print(bin(b)[2:],bin(a)[2:])
 try:
-    if len(os)==l and int(os,2) and os[0]!='0':
+    if l<=105 and len(os)==l and int(os,2) and os[0]!='0':
         avg(os,l)       #try-except to check for possible errors and requirements
     else:
         print('Length not matched')
