@@ -20,9 +20,9 @@ for i in range(0,20):
     if n==2**i:                     #Checking if string is of length equal to power of 2
         flag=1
         break
-if flag==0:
+if flag==0:                         #Checks for all constraints before calling function
     print("Enter a length which is a power of 2")
 elif flag==1 and n<=(10**6) and s.islower()==True and len(s)==n:
-    divide(s,n,deg)                 #Checks for all constraints before calling function
+    divide(s,n,deg)                 
 else:
     print("Enter a string of same size as given, less than 10^6 and all in lowercase")
