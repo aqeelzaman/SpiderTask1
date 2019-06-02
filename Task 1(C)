@@ -1,1 +1,30 @@
+ten=[[8,80],[7,70],[16,160],[9,90],[43,430]]
+eight=[[7,56],[16,128],[9,72],[43,344]]
+seven=[[16,112],[9,63],[43,301]]
+sixteen=[[9,144],[43,688]]
+nine=[[43,387]]
+total=[ten,eight,seven,sixteen,nine]
+d={0:10,1:8,2:7,3:16,4:9}
+order=[0,0,0,0,0,0]
 
+def fun(a,x,y):
+    for b in range(0,5):
+        for c in total[b]:
+            if c[1]==a:
+                order[y]=c[0]
+                order[x]=d[b]
+    return order
+
+q1=int(input("0 5: "))
+q2=int(input("5 2: "))
+q3=int(input("1 4: "))
+q4=int(input("4 3: "))
+print(order)
+order=fun(q1,0,5)
+print(order)
+order=fun(q2,2,5)
+print(order)
+order=fun(q3,1,4)
+print(order)
+order=fun(q4,3,4)
+print(order)
