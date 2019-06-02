@@ -1,0 +1,28 @@
+n=int(input(""))
+s=str(input(""))
+deg=0                               #The degree is stored as deg
+def divide(s,n,deg):
+    if n==1:
+        print(deg)                  #Function divides and checks the degree
+    else:
+        f=str(s[:int(n/2)])         #split into first half f and last half l
+        l=str(s[int(n/2):])
+        if f==l:
+            deg=deg+1
+            n=n/2
+            divide(f,n,deg)
+        else:
+            print(deg)
+
+flag=0
+i=0
+for i in range(0,20):
+    if n==2**i:                     #Checking if string is of length equal to power of 2
+        flag=1
+        break
+if flag==0:
+    print("Enter a length which is a power of 2")
+elif flag==1 and n<=(10**6) and s.islower()==True and len(s)==n:
+    divide(s,n,deg)                 #Checks for all constraints before calling function
+else:
+    print("Enter a string of same size as given, less than 10^6 and all in lowercase")
